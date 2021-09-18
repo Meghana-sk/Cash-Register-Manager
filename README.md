@@ -8,4 +8,4 @@
 
 #### - For hosting, Netlify used
 
-#### - Project LIVE at [cashregister](https://digicashregister.netlify.app/)
+#### - Project LIVE at [Cash-Register-Manager](https://digicash-register-manager.netlify.app/)
