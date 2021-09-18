@@ -35,6 +35,8 @@ checkBtn.addEventListener(
           errorText.innerText = "";
           notesToBeGiven[index].innerText = notes;
         }
+      } else if (parseInt(givenCash.value) === parseInt(payme.value)) {
+        errorText.innerText = "No amount to be returned as change.";
       } else {
         errorText.innerText = "Given amount is less than bill.😕";
       }
