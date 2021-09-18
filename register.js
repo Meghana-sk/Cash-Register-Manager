@@ -28,11 +28,15 @@ checkBtn.addEventListener(
     if (parseInt(givenCash.value) > 0 && parseInt(payme.value) > 0) {
       let amountToBeGivenback =
         parseInt(givenCash.value) - parseInt(payme.value);
-      for (let index = 0; index < availablecash.length; index++) {
-        const notes = Math.trunc(amountToBeGivenback / availablecash[index]);
-        amountToBeGivenback = amountToBeGivenback % availablecash[index];
-        errorText.innerText = "";
-        notesToBeGiven[index].innerText = notes;
+      if (parseInt(givenCash.value) > parseInt(payme.value)) {
+        for (let index = 0; index < availablecash.length; index++) {
+          const notes = Math.trunc(amountToBeGivenback / availablecash[index]);
+          amountToBeGivenback = amountToBeGivenback % availablecash[index];
+          errorText.innerText = "";
+          notesToBeGiven[index].innerText = notes;
+        }
+      } else {
+        errorText.innerText = "Given amount is less than bill.😕";
       }
     } else {
       for (let index = 0; index < availablecash.length; index++) {
