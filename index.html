@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Cash register</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Cash Register Manager</h2>
+      <div>
+        <label for="pay">pay</label>
+        <span> <input type="number" id="pay" /></span>
+      </div>
+      <div id="second-input">
+        <label for="cash-given">Cash given</label
+        ><span> <input type="number" id="cash-given" /></span>
+      </div>
+      <table>
+        <thead>
+          <tr class="note-denomination-available">
+            <th>Rs 2000</th>
+            <th>Rs 500</th>
+            <th>Rs 100</th>
+            <th>Rs 20</th>
+            <th>Rs 10</th>
+            <th>Rs 5</th>
+            <th>Rs 1</th>
+          </tr>
+          <tr>
+            <td class="notes-denominations-given"></td>
+            <td class="notes-denominations-given"></td>
+            <td class="notes-denominations-given"></td>
+            <td class="notes-denominations-given"></td>
+            <td class="notes-denominations-given"></td>
+            <td class="notes-denominations-given"></td>
+            <td class="notes-denominations-given"></td>
+          </tr>
+        </thead>
+      </table>
+      <div>
+        <button id="check">Check</button>
+      </div>
+    </div>
+    <footer>
+      <div id="footer-text">Contact me</div>
+      <ul>
+        <li class="social-media">
+          <a href="http://linkedin.com/in/meghanask">linkedin</a>
+        </li>
+        <li class="social-media">
+          <a href="http://twitter.com/meghana__sk">twitter</a>
+        </li>
+      </ul>
+    </footer>
+    <script src="register.js" type="text/javascript"></script>
+  </body>
+</html>
