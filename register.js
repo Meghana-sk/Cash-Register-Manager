@@ -32,6 +32,7 @@ checkBtn.addEventListener(
         for (let index = 0; index < availablecash.length; index++) {
           const notes = Math.trunc(amountToBeGivenback / availablecash[index]);
           amountToBeGivenback = amountToBeGivenback % availablecash[index];
+          table.style.display = "block";
           errorText.innerText = "";
           notesToBeGiven[index].innerText = notes;
         }
@@ -39,6 +40,7 @@ checkBtn.addEventListener(
         errorText.innerText = "No amount to be returned as change.";
       } else {
         errorText.innerText = "Given amount is less than bill.😕";
+        table.style.display = "none";
       }
     } else {
       for (let index = 0; index < availablecash.length; index++) {
