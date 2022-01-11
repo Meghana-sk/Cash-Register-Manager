@@ -10,7 +10,7 @@ let availablecash = [2000, 500, 100, 20, 10, 5, 1];
 
 checkBtn.style.display = "none";
 
-nextBtn.addEventListener("click", function displayGivenCash() {
+const displayGivenCash = () => {
   if (Number(payme.value) > 0) {
     givenCash.style.display = "inline";
     document.getElementById("second-input").style.display = "block";
@@ -20,33 +20,32 @@ nextBtn.addEventListener("click", function displayGivenCash() {
   } else {
     errorText.innerText = "Invalid bill amount";
   }
-});
+};
 
-checkBtn.addEventListener(
-  "click",
-  function calculateNoteDenominationToBeGivenBack() {
-    if (parseInt(givenCash.value) > 0 && parseInt(payme.value) > 0) {
-      let amountToBeGivenback =
-        parseInt(givenCash.value) - parseInt(payme.value);
-      if (parseInt(givenCash.value) > parseInt(payme.value)) {
-        for (let index = 0; index < availablecash.length; index++) {
-          const notes = Math.trunc(amountToBeGivenback / availablecash[index]);
-          amountToBeGivenback = amountToBeGivenback % availablecash[index];
-          table.style.display = "block";
-          errorText.innerText = "";
-          notesToBeGiven[index].innerText = notes;
-        }
-      } else if (parseInt(givenCash.value) === parseInt(payme.value)) {
-        errorText.innerText = "No amount to be returned as change.";
-      } else {
-        errorText.innerText = "Given amount is less than bill.😕";
-        table.style.display = "none";
-      }
-    } else {
+const calculateNoteDenominationToBeGivenBack = () => {
+  if (parseInt(givenCash.value) > 0 && parseInt(payme.value) > 0) {
+    let amountToBeGivenback = parseInt(givenCash.value) - parseInt(payme.value);
+    if (parseInt(givenCash.value) > parseInt(payme.value)) {
       for (let index = 0; index < availablecash.length; index++) {
-        notesToBeGiven[index].innerText = 0;
+        const notes = Math.trunc(amountToBeGivenback / availablecash[index]);
+        amountToBeGivenback = amountToBeGivenback % availablecash[index];
+        table.style.display = "block";
+        errorText.innerText = "";
+        notesToBeGiven[index].innerText = notes;
       }
-      errorText.innerText = "Invalid given amount";
+    } else if (parseInt(givenCash.value) === parseInt(payme.value)) {
+      errorText.innerText = "No amount to be returned as change.";
+    } else {
+      errorText.innerText = "Given amount is less than bill.😕";
+      table.style.display = "none";
     }
+  } else {
+    for (let index = 0; index < availablecash.length; index++) {
+      notesToBeGiven[index].innerText = 0;
+    }
+    errorText.innerText = "Invalid given amount";
   }
-);
+};
+
+nextBtn.addEventListener("click", displayGivenCash);
+checkBtn.addEventListener("click", calculateNoteDenominationToBeGivenBack);
